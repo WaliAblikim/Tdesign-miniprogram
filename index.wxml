@@ -1,0 +1,15 @@
+<view class="page">
+    <view class="block">
+        <t-navbar class="navBar" title="{{titleInfo.text}}" left-arrow bind:go-back="handleBack" />
+    </view>
+    <view class="container">
+        <view class="date">
+            <t-calendar visible="{{visible}}" type='single' bind:confirm="handleConfirm" bind:close="onClose" />
+            <t-cell arrow title="请选择预约时间：" bind:tap="handleCalendar" note="{{note}}" />
+        </view>
+        <t-textarea t-class="external-class" t-class-textarea="t-lable" label="备注" placeholder="请输入备注信息" maxcharacter="50" TextareaValue='{{remarks}}' bind:change="valueChange" indicator />
+    </view>
+    <view class="action-btn">
+        <t-button bind:tap="submit" theme="primary" size="large" block loading="{{loading}}">{{loading?'提交中':'提交'}}</t-button>
+    </view>
+</view>
